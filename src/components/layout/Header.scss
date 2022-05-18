@@ -1,0 +1,92 @@
+.header {
+  position: relative;
+  height: 80vh;
+  background-image: linear-gradient(
+      to bottom right,
+      rgba(109, 80, 203, 0.8),
+      rgba(105, 197, 48, 0.8)
+    ),
+    url("../../images/japan-waterfront.jpg");
+  background-size: cover;
+  background-position: top;
+
+  clip-path: polygon(0 0, 100% 0, 100% 60vh, 0 100%);
+  color: white;
+
+  .header__hero-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    // prevents jerkiness in animations
+    backface-visibility: hidden;
+  }
+
+  .header__main-heading {
+    text-transform: uppercase;
+    display: block;
+    font-size: 3rem;
+    letter-spacing: 25px;
+    text-align: center;
+    font-weight: 300;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+  @keyframes moveInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+
+    80% {
+      transform: translateX(5%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .header__sub-heading {
+    display: block;
+    font-size: 1rem;
+    letter-spacing: .25rem;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 1rem;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+  @keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+
+    80% {
+      transform: translateX(-5%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+.header__logo-box {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.header__logo {
+  height: 3rem;
+}
+}
