@@ -6,17 +6,18 @@ const Header = () => {
   return (
     <section className="header">
       <div className="header__logo-box">
-        <img src={logo} alt="nature tours logo" className="header__logo" />
+        <img src={logo} alt="nobank logo" className="header__logo" />
+        <h1>NoBank</h1>
       </div>
       <div className="header__hero-box">
         <h1>
-          <span className="header__main-heading">Nature Tours</span>
+          <span className="header__main-heading">DEFI</span>
           <span className="header__sub-heading">
-            Experience the Natural Wonders of the World
+            Unbank Yourself
           </span>
         </h1>
-        <Button link="#" className="header__btn-animate">
-          View Tours
+        <Button link="#" className="btn-animate">
+          View Services
         </Button>
       </div>
     </section>

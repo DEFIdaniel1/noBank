@@ -1,19 +1,21 @@
+@import '../../scss/variables';
+
 .header {
   position: relative;
   height: 80vh;
   background-image: linear-gradient(
       to bottom right,
-      rgba(109, 80, 203, 0.8),
-      rgba(105, 197, 48, 0.8)
+      rgba($blue, 0.8),
+      rgba($pink, 0.8)
     ),
-    url("../../images/japan-waterfront.jpg");
+    url("../../images/block-header.jpeg");
   background-size: cover;
-  background-position: top;
+  background-position: right;
 
   clip-path: polygon(0 0, 100% 0, 100% 60vh, 0 100%);
-  color: white;
+  color: rgb(61, 61, 61);
 
-  .header__hero-box {
+  &__hero-box {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -23,14 +25,13 @@
     // prevents jerkiness in animations
     backface-visibility: hidden;
   }
-
-  .header__main-heading {
+  &__main-heading {
     text-transform: uppercase;
     display: block;
     font-size: 3rem;
     letter-spacing: 25px;
     text-align: center;
-    font-weight: 300;
+    font-weight: 500;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -42,22 +43,18 @@
       transform: translateX(-50%);
     }
 
-    80% {
-      transform: translateX(5%);
-    }
-
     100% {
       opacity: 1;
       transform: translateX(0);
     }
   }
 
-  .header__sub-heading {
+  &__sub-heading {
     display: block;
     font-size: 1rem;
     letter-spacing: 0.25rem;
     text-align: center;
-    font-weight: 400;
+    font-weight: 600;
     margin-top: 1rem;
 
     animation-name: moveInRight;
@@ -70,23 +67,27 @@
       transform: translateX(50%);
     }
 
-    80% {
-      transform: translateX(-5%);
-    }
-
     100% {
       opacity: 1;
       transform: translateX(0);
     }
   }
 
-  .header__logo-box {
+  &__logo-box {
     position: absolute;
+    display: flex;
     top: 1rem;
     left: 1rem;
+
+    h1 {
+      display: inline;
+      padding: 0.1rem 0.4rem;
+      font-weight: 300;
+    }
   }
 
-  .header__logo {
-    height: 3rem;
+  &__logo {
+    height: 2.5rem;
+    display: inline;
   }
 }
