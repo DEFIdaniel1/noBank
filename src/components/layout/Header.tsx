@@ -5,15 +5,15 @@ import Button from "../UI/Button";
 const Header = () => {
   return (
     <section className="header">
-      <div className="header__logo-box">
+      <a href="#" className="header__logo-box">
         <img src={logo} alt="nobank logo" className="header__logo" />
         <h1>NoBank</h1>
-      </div>
+      </a>
       <div className="header__hero-box">
         <h1>
           <span className="header__main-heading">DEFI</span>
           <span className="header__sub-heading">
-            Unbank Yourself
+            Cut the Bank From Your Profits
           </span>
         </h1>
         <Button link="#" className="btn-animate">

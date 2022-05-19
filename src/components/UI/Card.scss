@@ -1,0 +1,36 @@
+@import "../../scss/variables";
+
+.container {
+  min-height: 20vh;
+  //   margin: .5rem 0 0 0;
+  box-shadow: 5px 2px 30px -10px rgb(177, 174, 174);
+  // border-radius: 1rem;
+  padding: 1rem 2rem;
+
+  &.white {
+    background-color: rgb(255, 255, 255);
+    h3 {
+      color: $blue-dark2;
+      font-size: 1.4rem;
+    }
+
+    h4 {
+      color: rgb(90, 90, 90);
+      font-size: 1.1rem;
+    }
+  }
+  &.dark-blue {
+    background-color: $section-blue-dark;
+    color: white;
+
+    h3 {
+      color: white;
+      font-size: 1.4rem;
+    }
+
+    h4 {
+      color: rgb(229, 229, 229);
+      font-size: 1.1rem;
+    }
+  }
+}

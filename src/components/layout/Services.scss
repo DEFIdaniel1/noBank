@@ -1,2 +1,17 @@
 @import '../../scss/variables';
 
+.services {
+    display: flex;
+    justify-content: space-around;
+
+    &__box {
+        margin: 0 1rem;
+        text-align: center;
+        flex: 1 0 0;
+
+        &-icon {
+            max-height: 5rem;
+        }
+
+    }
+}
