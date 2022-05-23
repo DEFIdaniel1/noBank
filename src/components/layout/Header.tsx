@@ -5,7 +5,7 @@ import Button from "../UI/Button";
 const Header = () => {
   return (
     <section className="header">
-      <a href="#" className="header__logo-box">
+      <a href="/#" className="header__logo-box">
         <img src={logo} alt="nobank logo" className="header__logo" />
         <h1>NoBank</h1>
       </a>

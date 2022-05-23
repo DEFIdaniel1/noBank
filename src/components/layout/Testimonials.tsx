@@ -1,8 +1,7 @@
 import "./Testimonials.scss";
 
-import happyWoman from '../../images/happyWoman.jpeg';
+import happyWoman from "../../images/happyWoman.jpeg";
 import happyMan from "../../images/happyMan.jpeg";
-
 
 const Testimonials = () => {
   return (
@@ -13,7 +12,7 @@ const Testimonials = () => {
       <div className="testimonials">
         <figure className="review">
           <blockquote className="review__text">
-            Wow, finally a DEFI platform that doesn't run off with your 
+            Wow, finally a DEFI platform that doesn't run off with your
             hard-earned crypto. Say no to rugpulls - say yes to NoBank!
           </blockquote>
           <figcaption className="review__user">
@@ -32,7 +31,8 @@ const Testimonials = () => {
         <figure className="review">
           <blockquote className="review__text">
             I saved so much money that I can finally retire! I didn't understand
-            crypto, but now it's all I do. I'm earnin' and burnin'! Sorry grandkids.
+            crypto, but now it's all I do. I'm earnin' and burnin'! Sorry
+            grandkids.
           </blockquote>
           <figcaption className="review__user">
             <img
