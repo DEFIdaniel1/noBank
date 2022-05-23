@@ -11,10 +11,13 @@ $pink-light: lighten($pink, 15%);
 
 $section-blue-dark: #2f5c72;
 
-
-
 $shadow-dark: 2px 2px 0.6rem rgba(56, 56, 56, 0.5);
 $shadow-light: 2px 2px 1rem rgba(42, 42, 42, 0.4);
 
 $primary-blue: darken($blue-dark, 10%);
 $primary-pink: darken($pink, 15%);
+
+@mixin heading {
+  text-align: center;
+  font-size: 1.8rem;
+}
