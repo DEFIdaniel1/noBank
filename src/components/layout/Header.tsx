@@ -13,7 +13,7 @@ const Header = () => {
         <h1>
           <span className="header__main-heading">DEFI</span>
           <span className="header__sub-heading">
-            Cut the Bank From Your Profits
+            Freedom from Banks
           </span>
         </h1>
         <Button link="#" className="btn-animate">

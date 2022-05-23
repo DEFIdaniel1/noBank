@@ -1,0 +1,32 @@
+@import "../../scss/variables";
+
+.howItWorks {
+padding: 2rem 0;
+  &__text {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    & > * {
+        padding: 2rem;
+    }
+  }
+}
+.heading {
+    text-align: center;
+    font-size: 1.8rem;
+
+}
+.body {
+// margin-left: auto;
+h2 {
+    margin: 1.9rem 0 0 0;
+}
+}
+
+.pink {
+    color: $primary-pink;
+}
+.blue {
+    color: $primary-blue;
+}

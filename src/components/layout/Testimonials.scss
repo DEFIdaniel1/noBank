@@ -1,0 +1,26 @@
+@import "../../scss/variables";
+
+.testimonial-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: $pink;
+    // background-image: linear-gradient(to left, $pink, $blue);
+}
+
+.testimonial {
+    padding: 1rem;
+    background-color: rgb(230, 230, 230);
+    flex: 1;
+    margin: 1rem;
+    box-shadow: $shadow-dark;
+    border-radius: 1rem;
+
+    transition: all 0.4s;
+
+    &:hover {
+        box-shadow: $shadow-light;
+        // transform: scale(1.05);
+        transform: translateY(-2px);
+    }
+}
