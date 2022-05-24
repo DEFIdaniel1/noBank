@@ -1,15 +1,42 @@
-@import '../../scss/variables';
+@import "../../scss/variables";
 
 .services {
-
-    &__box{
-        &-heading {
-            color: $pink;
-        }
-        &-icon{
-            
-        }
+  &__box {
+    &-heading {
+      color: $pink-dark;
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 0.5rem 0;
+      line-height: 1.5;
     }
-
+    h4 {
+      font-size: 1.2em;
+      font-weight: 400;
+      padding: 1rem 0 2rem 0;
+    }
+    &-icon1 {
+      background-image: linear-gradient($pink, $blue-dark);
+      mask-image: url("../../images/lock.svg");
+      mask-repeat: no-repeat;
+      height: 6rem;
+      mask-position: center;
+      mask-size: 5rem;
+    }
+    &-icon2 {
+      background-image: linear-gradient($pink, $blue-dark);
+      mask-image: url("../../images/SVG/users1.svg");
+      mask-repeat: no-repeat;
+      height: 6rem;
+      mask-position: center;
+      mask-size: 6rem;
+    }
+    &-icon3 {
+      background-image: linear-gradient($pink, $blue-dark);
+      mask-image: url("../../images/decentralized.png");
+      mask-repeat: no-repeat;
+      height: 6rem;
+      mask-position: center;
+      mask-size: 6rem;
+    }
+  }
 }
-
