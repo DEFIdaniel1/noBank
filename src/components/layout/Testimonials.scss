@@ -1,25 +1,15 @@
 @import "../../scss/variables";
 
-.testimonial-section {
-  margin: 2rem 0;
-  h1 {
-    text-align: center;
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
-  }
-  padding: 1rem;
-}
-
 .testimonials {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  z-index: 10;
+  margin-bottom: 3rem;
   
 }
 .review {
   font-size: 1.1rem;
-  padding: 2rem;
+  padding: 3rem;
   background-color: rgb(255, 255, 255);
   flex: 1;
   margin: 1rem;
@@ -34,6 +24,7 @@
   }
 
   &__text {
+    font-size: 1.3rem;
   }
   &__user {
     display: flex;

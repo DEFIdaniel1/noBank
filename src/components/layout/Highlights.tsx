@@ -1,10 +1,6 @@
 import "./Highlights.scss";
 import Card from "../UI/Card";
 
-import lock from "../../images/lock.svg";
-import users from "../../images/users.svg";
-import decentralized from "../../images/decentralized.png";
-
 const Highlights = () => {
   return (
     <Card className="white">

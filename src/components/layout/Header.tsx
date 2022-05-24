@@ -16,7 +16,7 @@ const Header = () => {
             Where Your Crypto Works for You
           </span>
         </h1>
-        <Button link="#" className="btn-animate">
+        <Button link="#service-link" className="btn-animate">
           View Services
         </Button>
       </div>
