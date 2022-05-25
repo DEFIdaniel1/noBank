@@ -19,3 +19,19 @@ $primary-blue: darken($blue-dark, 10%);
 $primary-pink: darken($pink, 15%);
 
 $input-gray: rgb(236, 236, 236);
+
+$bp-md: 56.25em; //900px
+$bp-sm: 37.5em; //600px
+
+@mixin respond($size) {
+  @if $size == small {
+    @media (max-width: $bp-sm) {
+      @content;
+    }
+  }
+  @if $size == med {
+    @media (max-width: $bp-md) {
+      @content;
+    }
+  }
+}
