@@ -14,7 +14,7 @@ const Services = () => {
             Stake your crypto-currencies with us and get an annualized yield up
             to 19%!
           </h4>
-          <Button link="/#calculator" className="services__box-btn">
+          <Button link="/#calculator" className="services__box btn-pink">
             Stake now
           </Button>
         </div>
@@ -25,7 +25,7 @@ const Services = () => {
             Need to use your crypto as collateral for a loan in USD? We have you
             covered!
           </h4>
-          <Button link="/#calculator" className="services__box-btn">
+          <Button link="/#calculator" className="services__box btn-pink">
             Borrow now
           </Button>
         </div>

@@ -12,9 +12,10 @@
     $pink-dark2 59%,
     $pink-dark3 100%
   );
+  position: relative;
 }
 
-////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 //////CALC LEFT SIDE
 .calc-left {
   flex: 0 0 60%;
@@ -22,9 +23,25 @@
   padding: 1rem 0;
 
   &-heading {
-    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
     color: $pink-dark2;
     font-weight: 600;
+
+    &-inactive {
+      font-size: 1rem;
+      padding: 0.2rem 1rem;
+      // width: 8rem;
+      position: absolute;
+      top: -4rem;
+      right: 1rem;
+      &:hover {
+        // background-color: $blue;
+        color: white;
+      }
+    }
   }
 
   h3 {
@@ -119,7 +136,7 @@
   }
 }
 
-////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 //////CALC RIGHT SIDE
 .calc-right {
   flex: 0 0 40%;
@@ -132,6 +149,7 @@
   .total-yield-box {
     text-align: center;
     margin-bottom: 3rem;
+    margin-top: 2rem;
 
     h3 {
       font-weight: 400;

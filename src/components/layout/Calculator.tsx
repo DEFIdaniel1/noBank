@@ -1,14 +1,31 @@
+import React, { useState } from "react";
+
 import Card from "../UI/Card";
 import "./Calculator.scss";
+import Button from "../UI/Button";
 
 import bitcoin from "../../images/icons/bitcoin.png";
 import eth from "../../images/icons/eth.svg";
 import solana from "../../images/icons/solana.png";
 import cardano from "../../images/icons/cardano.png";
 import usdc from "../../images/icons/usdc.png";
+import { clickOptions } from "@testing-library/user-event/dist/click";
 
 //useState staking vs borrowing show relevant calculator
 const Calculator = () => {
+  const [calcType, setCalcType] = useState("staking");
+
+  let inactiveCalcType;
+  if (calcType === "staking") {
+    inactiveCalcType = "Borrow";
+  } else {
+    inactiveCalcType = "Staking";
+  }
+
+  const calcButtonToggle = () => {
+    calcType === "staking" ? setCalcType("borrow") : setCalcType("staking");
+  };
+
   const cryptoSelector = (
     <div className="crypto-icons">
       <img src={bitcoin} alt="bitcon token" className="crypto-icons-active" />
@@ -37,27 +54,25 @@ const Calculator = () => {
           <div className="calc-form__month-selector-item">6 Months</div>
           <div className="calc-form__month-selector-item active">12 Months</div>
         </div>
-        <h3>Staking APY</h3>
-        <div className="calc-form__apy">15%</div>
       </div>
     </div>
   );
 
-  // const borrowCalc = (
-  //   <div className="calc__borrow">
-  //     <h3>Select Your Crypto</h3>
-  //     <form action="" className="calc__borrow-form">
-  //       <label htmlFor="">Quantity</label>
-  //       <input type="text" />
-  //       <label htmlFor="">Yield</label>
-  //       <input type="text" />
-  //       <label htmlFor="">Months</label>
-  //       <input type="text" />
-  //       <label htmlFor="">Earned</label>
-  //       <input type="text" />
-  //     </form>
-  //   </div>
-  // );
+  const borrowCalc = (
+    <div className="calc__borrow">
+      <h3>Select Your Crypto</h3>
+      <form action="" className="calc__borrow-form">
+        <label htmlFor="">Quantity</label>
+        <input type="text" />
+        <label htmlFor="">Yield</label>
+        <input type="text" />
+        <label htmlFor="">Months</label>
+        <input type="text" />
+        <label htmlFor="">Earned</label>
+        <input type="text" />
+      </form>
+    </div>
+  );
 
   return (
     <Card className="dark-blue">
@@ -65,8 +80,16 @@ const Calculator = () => {
         <h1>Yield Calculator</h1>
         <Card className="white calc-box">
           <div className="calc-left">
-            <div className="calc-left-heading">Staking</div>
-            {stakeCalc}
+            <div className="calc-left-heading">
+              <div className="calc-left-heading-active">Staking</div>
+              <div onClick={calcButtonToggle}>
+                <Button className="calc-left-heading-inactive btn-pink">
+                  Check {inactiveCalcType} Rates
+                </Button>
+              </div>
+            </div>
+            {calcType === "staking" && stakeCalc}
+            {calcType === "borrow" && borrowCalc}
           </div>
           <div className="calc-right">
             <div className="total-yield-box">
@@ -74,7 +97,6 @@ const Calculator = () => {
               <div className="total-yield-box__value">$1,200.00</div>
               <div className="total-yield-box__gain">3.00% Gain</div>
             </div>
-
             <div className="yield-box">
               <div className="yield-box-inner">
                 <div>Monthly Yield</div>

@@ -5,8 +5,8 @@
   height: 80vh;
   background-image: linear-gradient(
       to bottom right,
-      rgba($blue, 0.8),
-      rgba($pink, 0.8)
+      rgba($blue-dark, 0.9),
+      rgba($pink-dark, 1)
     ),
     url("../../images/block-header.jpeg");
   background-size: cover;
