@@ -12,7 +12,11 @@ html {
   font-size: 100%;
   scroll-behavior: smooth;
 
-  @include respond(small) {
+
+  @include respond(large) {
+    font-size: 90%;
+  }
+  @include respond(med) {
     font-size: 70%;
   }
 }

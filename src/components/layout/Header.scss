@@ -1,4 +1,4 @@
-@import '../../scss/variables';
+@import "../../scss/variables";
 
 .header {
   position: relative;
@@ -51,15 +51,21 @@
 
   &__sub-heading {
     display: block;
-    font-size: 1rem;
+    font-size: 1.3rem;
     letter-spacing: 0.25rem;
     text-align: center;
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 1rem;
 
     animation-name: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+
+    @include respond(med) {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
   }
   @keyframes moveInRight {
     0% {
@@ -75,7 +81,7 @@
 
   &__logo-box {
     text-decoration: none;
-    color:rgb(61, 61, 61);
+    color: rgb(61, 61, 61);
     position: absolute;
     display: flex;
     top: 1rem;

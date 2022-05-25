@@ -1,34 +1,51 @@
 @import "../../scss/variables";
 
 .howItWorks {
-padding: 1rem 0 2rem 0;
+  padding: 1rem 0 2rem 0;
   &__text {
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     & > * {
-        padding: 2rem;
+      padding: 2rem;
+    }
+
+    @include respond(med) {
+      flex-direction: column;
     }
   }
 }
 .heading {
-    text-align: center;
-    font-size: 1.8rem;
+  text-align: center;
+  font-size: 1.8rem;
 
+  @include respond(med) {
+    padding-bottom: 0;
+  }
 }
 .body {
-// margin-left: auto;
-h2 {
+  // margin-left: auto;
+  h2 {
     margin: 4rem 0 0 0;
     font-size: 2rem;
 
-}
+    @include respond(med) {
+      margin: 0 0 0rem 0;
+    }
+  }
+  p {
+  @include respond(med) {
+    margin: 0 0 3rem 0;
+    font-size: 1.3rem;
+  }
+  }
+
 }
 
 .pink {
-    color: $primary-pink;
+  color: $primary-pink;
 }
 .blue {
-    color: $primary-blue;
+  color: $primary-blue;
 }

@@ -2,13 +2,15 @@
 
 .container {
   min-height: 20vh;
-  //   margin: .5rem 0 0 0;
   box-shadow: 5px 2px 30px -10px rgb(177, 174, 174);
-  // border-radius: 1rem;
   padding: 1rem 2rem;
 
   &.pink-card {
-    background-image: linear-gradient(to bottom left, rgb(240, 213, 255), white);
+    background-image: linear-gradient(
+      to bottom left,
+      rgb(240, 213, 255),
+      white
+    );
     padding: 4rem 1rem 3rem 1rem;
     h1 {
       text-align: center;
@@ -22,7 +24,7 @@
   }
   &.dark-blue {
     background-color: $blue-dark2;
-        background-image: linear-gradient(to bottom right, $blue-dark2, $blue-dark);
+    background-image: linear-gradient(to bottom right, $blue-dark2, $blue-dark);
 
     color: rgb(233, 233, 233);
     padding: 4rem 1rem 6rem 1rem;
@@ -41,6 +43,10 @@
       font-size: 1.2rem;
       margin: 0 4rem;
       align-self: center;
+
+      @include respond(med) {
+        font-size: 1.6rem;
+      }
     }
   }
 }

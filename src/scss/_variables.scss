@@ -21,15 +21,27 @@ $primary-pink: darken($pink, 15%);
 $input-gray: rgb(236, 236, 236);
 
 $bp-md: 56.25em; //900px
-$bp-sm: 37.5em; //600px
+$bp-sm: 43.75em; //700px
+$bp-xs: 31.25em; //500px
+$bp-xxs: 18.75em; //300px
 
 @mixin respond($size) {
+  @if $size == tiny {
+    @media (max-width: $bp-xxs) {
+      @content;
+    }
+  }
   @if $size == small {
-    @media (max-width: $bp-sm) {
+    @media (max-width: $bp-xs) {
       @content;
     }
   }
   @if $size == med {
+    @media (max-width: $bp-sm) {
+      @content;
+    }
+  }
+  @if $size == large {
     @media (max-width: $bp-md) {
       @content;
     }
