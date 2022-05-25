@@ -7,6 +7,7 @@ $blue-light: lighten($blue, 15%);
 $pink: #e783fc;
 $pink-dark: darken($pink, 15%);
 $pink-dark2: darken($pink, 50%);
+$pink-dark3: darken($pink, 45%);
 $pink-light: lighten($pink, 15%);
 
 $section-blue-dark: #133342;
@@ -16,3 +17,5 @@ $shadow-light: 2px 2px 2rem rgba(42, 42, 42, 0.3);
 
 $primary-blue: darken($blue-dark, 10%);
 $primary-pink: darken($pink, 15%);
+
+$input-gray: rgb(236, 236, 236);

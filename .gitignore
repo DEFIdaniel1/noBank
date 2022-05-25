@@ -33,3 +33,7 @@ node_modules/.cache/.eslintcache
 node_modules/.cache/.eslintcache
 *.pack
 *.old
+*.pack
+*.pack
+node_modules/.cache/.eslintcache
+*.old

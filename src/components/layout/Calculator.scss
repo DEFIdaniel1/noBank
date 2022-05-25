@@ -1,6 +1,161 @@
-@import '../../scss/variables';
+@import "../../scss/variables";
 
 .calc-box {
-    border-radius: 2rem;
-    box-shadow: 0 0.2rem 1rem rgba($color: #000000, $alpha: 0.4);
+  border-radius: 2rem;
+  box-shadow: 0 0.2rem 1rem rgba($color: #000000, $alpha: 0.4);
+  display: flex;
+  flex-wrap: wrap;
+  background-image: linear-gradient(
+    to right,
+    white 0%,
+    white 59%,
+    $pink-dark2 59%,
+    $pink-dark3 100%
+  );
+}
+
+////////////////////////////////////
+//////CALC LEFT SIDE
+.calc-left {
+  flex: 0 0 60%;
+  text-align: center;
+  padding: 1rem 0;
+
+  &-heading {
+    font-size: 2.5rem;
+    color: $pink-dark2;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin: 2.5rem 0 0.7rem 0;
+  }
+  h4 {
+    font-weight: 300;
+  }
+
+  .crypto-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    & > * {
+      box-sizing: content-box;
+      height: 3rem;
+      width: 3rem;
+      margin: 0.5rem;
+      padding: 1rem;
+      border-radius: 100%;
+      transition: all 0.2s;
+    }
+
+    & > *:hover {
+      background-color: $blue-light;
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+    &-active {
+      background-color: transparent;
+      transform: scale(1.1);
+      // background-color: white;
+      box-shadow: 0 0 2rem $blue-dark;
+    }
+  }
+}
+.calc-form {
+  @mixin input {
+    background-color: $input-gray;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border-bottom: solid 2px $blue;
+    text-align: center;
+    &::placeholder {
+      color: gray;
+    }
+  }
+
+  input {
+    width: 50%;
+    border: none;
+    @include input;
+    font-size: 1rem;
+    color: inherit;
+    transition: all 0.3s;
+
+    &:focus {
+      width: 70%;
+      outline: none;
+      background-color: white;
+      box-shadow: 0 0 1rem $blue;
+    }
+  }
+  &__month-selector {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+
+    &-item {
+      @include input;
+      width: 30%;
+      transition: all 0.2s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $blue-light;
+        box-shadow: 0 0 1rem $blue;
+      }
+    }
+  }
+  .active {
+    background-color: white;
+    box-shadow: 0 0 1rem $blue-dark;
+  }
+
+  &__apy {
+    font-size: 1.3rem;
+    color: $blue-dark2;
+    font-weight: 700;
+  }
+}
+
+////////////////////////////////////
+//////CALC RIGHT SIDE
+.calc-right {
+  flex: 0 0 40%;
+  color: white;
+  padding: 1rem 1rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .total-yield-box {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h3 {
+      font-weight: 400;
+      font-size: 1.5rem;
+    }
+    &__value {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+  }
+
+  .yield-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 3rem 0 2rem 0;
+
+    &-inner {
+      text-align: center;
+    }
+    &__value {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+  }
 }
