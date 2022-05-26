@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import "./Calculator.scss";
+
+// import ApiRequest from "../API/ApiRequest";
+import StakingCalc from "../helper/StakingCalc";
 
 import Card from "../UI/Card";
-import "./Calculator.scss";
 import Button from "../UI/Button";
 
 import bitcoin from "../../images/icons/bitcoin.png";
@@ -9,10 +12,12 @@ import eth from "../../images/icons/eth.svg";
 import solana from "../../images/icons/solana.png";
 import cardano from "../../images/icons/cardano.png";
 import usdc from "../../images/icons/usdc.png";
-import { clickOptions } from "@testing-library/user-event/dist/click";
 
 //useState staking vs borrowing show relevant calculator
 const Calculator = () => {
+  const apiData = StakingCalc();
+  const bitCoinPrice = apiData;
+
   const [calcType, setCalcType] = useState("staking");
 
   let inactiveCalcType;
@@ -21,7 +26,6 @@ const Calculator = () => {
   } else {
     inactiveCalcType = "Staking";
   }
-
   const calcButtonToggle = () => {
     calcType === "staking" ? setCalcType("borrow") : setCalcType("staking");
   };
@@ -39,7 +43,7 @@ const Calculator = () => {
   const stakeCalc = (
     <div className="calc-form">
       <h3>Select Your Crypto</h3>
-      <h4>Bitcoin</h4>
+      <h4>{`Bitcoin Price: $30,000${bitCoinPrice}`}</h4>
       {cryptoSelector}
       <form action="">
         <label htmlFor="">
