@@ -6,3 +6,10 @@ export type IconProps = {
   height?: string;
 };
 
+//for store reducer
+export type TokenState = {
+    tokenPrice: number,
+    tokenName: string
+ };
+
+ 

@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import "./Calculator.scss";
-
-// import ApiRequest from "../API/ApiRequest";
-import StakingCalc from "../helper/StakingCalc";
+import { TokenAction } from "../../models/action-types";
+import { TokenState } from "../../models/propTypes";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
@@ -13,12 +13,28 @@ import solana from "../../images/icons/solana.png";
 import cardano from "../../images/icons/cardano.png";
 import usdc from "../../images/icons/usdc.png";
 
-//useState staking vs borrowing show relevant calculator
 const Calculator = () => {
-  const apiData = StakingCalc();
-  const bitCoinPrice = apiData;
+  const dispatch = useAppDispatch();
+  const tokenPrice = useAppSelector((state: TokenState) => state.tokenPrice);
+  const tokenName = useAppSelector((state: TokenState) => state.tokenName);
 
   const [calcType, setCalcType] = useState("staking");
+
+  const fetchBitcoinHandler = () => {
+    dispatch({ type: TokenAction.FetchBTC });
+  };
+  const fetchEthereumHandler = () => {
+    dispatch({ type: TokenAction.FetchETH });
+  };
+  const fetchSolanaHandler = () => {
+    dispatch({ type: TokenAction.FetchSOL });
+  };
+  const fetchCardanoandler = () => {
+    dispatch({ type: TokenAction.FetchADA });
+  };
+  const fetchUsdcHandler = () => {
+    dispatch({ type: TokenAction.FetchUSDC });
+  };
 
   let inactiveCalcType;
   if (calcType === "staking") {
@@ -32,18 +48,23 @@ const Calculator = () => {
 
   const cryptoSelector = (
     <div className="crypto-icons">
-      <img src={bitcoin} alt="bitcon token" className="crypto-icons-active" />
-      <img src={eth} alt="eth token" />
-      <img src={solana} alt="solana token" />
-      <img src={cardano} alt="cardano token" />
-      <img src={usdc} alt="cardano token" />
+      <img
+        onClick={fetchBitcoinHandler}
+        src={bitcoin}
+        alt="bitcon token"
+        className="crypto-icons-active"
+      />
+      <img onClick={fetchEthereumHandler} src={eth} alt="eth token" />
+      <img onClick={fetchSolanaHandler} src={solana} alt="solana token" />
+      <img onClick={fetchCardanoandler} src={cardano} alt="cardano token" />
+      <img onClick={fetchUsdcHandler} src={usdc} alt="cardano token" />
     </div>
   );
 
   const stakeCalc = (
     <div className="calc-form">
       <h3>Select Your Crypto</h3>
-      <h4>{`Bitcoin Price: $30,000${bitCoinPrice}`}</h4>
+      <h4>{`${tokenName} Price: $30,000${tokenPrice}`}</h4>
       {cryptoSelector}
       <form action="">
         <label htmlFor="">
