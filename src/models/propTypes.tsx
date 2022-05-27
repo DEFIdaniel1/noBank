@@ -7,9 +7,16 @@ export type IconProps = {
 };
 
 //for store reducer
-export type TokenState = {
-    tokenPrice: number,
-    tokenName: string
- };
+// export type TokenState = {
+//     tokenPrice: any,
+//     tokenName: any
+//  };
 
- 
+export type TokenState = {
+  name?: string;
+  price?: number;
+};
+
+export type TokenPayload = {
+  name: string; price: number;
+};

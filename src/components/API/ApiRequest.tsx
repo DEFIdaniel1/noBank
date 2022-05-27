@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const ApiRequest = () => {
+export const ApiRequest = () => {
   useEffect(() => {
     const coinGeckoRequest = async () => {
       try {
