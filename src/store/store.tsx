@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import fetchDataSlice from "./fetchDataSlice";
 // import changeTokenSlice from "./changeTokenSlice";
-import testTokenSlice from "./testTokenSlice";
+import changeTokenSlice from "./changeTokenSlice";
 
 const store = configureStore({
   reducer: {
-    changeToken: testTokenSlice,
+    changeToken: changeTokenSlice,
     fetchToken: fetchDataSlice,
   },
 });
