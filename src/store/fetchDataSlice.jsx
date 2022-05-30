@@ -3,10 +3,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const getTokenInfo = createAsyncThunk(
   "tokens/getTokenInfo",
   async () => {
-    console.log("running");
-    return fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1&sparkline=false"
-    ).then((res) => res.json());
+    console.log("API data slice async thunk running");
+    const apiData = await fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1&sparkline=false");
+    return apiData.json();
   }
 );
 
@@ -18,7 +18,7 @@ export const getTokenInfo = createAsyncThunk(
 const fetchDataSlice = createSlice({
   name: "fetchData",
   initialState: {
-    tokenData: [{ id: "" }],
+    tokenData: [{name: "loading...", price: 0}],
     loading: true,
   },
   extraReducers: {

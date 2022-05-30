@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { updateToken } from "../../store/testTokenSlice";
+import { updateToken } from "../../store/changeTokenSlice";
 
 import "./Calculator.scss";
 // import { TokenAction } from "../../models/action-types";
 // import { TokenState } from "../../models/propTypes";
 import { getTokenInfo } from "../../store/fetchDataSlice";
-// import findPrice from "../helper/findPrice";
-// import ApiRequest from "../API/ApiRequest";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
@@ -23,10 +21,14 @@ import usdc from "../../images/icons/usdc.png";
 
 const Calculator = () => {
   const dispatch = useAppDispatch();
+
+  const fetchedTokenData = useAppSelector(
+    (state) => state.fetchToken.tokenData
+  );
+  const loadingState = useAppSelector((state) => state.fetchToken.loading);
   const tokenPrice = useAppSelector((state) => state.changeToken.price);
   const tokenName = useAppSelector((state) => state.changeToken.name);
 
-  //////////////////TEST////////////////////////////////////////////////////////////////////////////////////////////////////
   const getPrice = (data: any, name: string) => {
     for (let i = 0; i < data.length; i++) {
       if (data[i].id === name) {
@@ -35,7 +37,7 @@ const Calculator = () => {
         console.log(tokenPrice);
         dispatch(
           updateToken({
-            payload: { name: tokenName, price: tokenPrice },
+            payloadData: { name: tokenName, price: tokenPrice },
           })
         );
         console.log(tokenName);
@@ -44,22 +46,12 @@ const Calculator = () => {
     }
   };
   const getPriceHandler = (token: string) => {
-    const newPayload = getPrice(fetchedTokenData, token) as any;
-    dispatch(
-      updateToken({
-        payload: { name: newPayload.tokenName, price: newPayload.tokenPrice },
-      })
-    );
+    const newPayload = getPrice(fetchedTokenData, token);
   };
-  //////////////////TEST////////////////////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
     dispatch(getTokenInfo());
     getPriceHandler("bitcoin");
-  }, [dispatch]);
-
-  const fetchedTokenData = useAppSelector(
-    (state) => state.fetchToken.tokenData
-  );
+  }, [loadingState]);
 
   const [calcType, setCalcType] = useState("staking");
 
@@ -108,7 +100,10 @@ const Calculator = () => {
   const stakeCalc = (
     <div className="calc-form">
       <h3>Select Your Crypto</h3>
-      <h4>{`${tokenName} Price: $${tokenPrice.toFixed(2)}`}</h4>
+      {loadingState && <h4>Loading price...</h4>}
+      {!loadingState && (
+        <h4>{`${tokenName} Price: $${tokenPrice.toFixed(2)}`}</h4>
+      )}
       {cryptoSelector}
       <form action="">
         <label htmlFor="">
