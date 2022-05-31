@@ -25,17 +25,6 @@
     flex-direction: column;
     padding-bottom: 3rem;
   }
-    @include respond(calc) {
-    background-image: linear-gradient(
-      to bottom,
-      white 0%,
-      white 64%,
-      $pink-dark2 64%,
-      $pink-dark3 100%
-    );
-    flex-direction: column;
-    padding-bottom: 3rem;
-  }
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -90,8 +79,8 @@
       transition: all 0.2s;
 
       @include respond(tiny) {
-        height: 2.5rem;
-        width: 2.5rem;
+      height: 2.5rem;
+      width: 2.5rem;
       }
     }
 
@@ -139,6 +128,10 @@
     display: flex;
     justify-content: space-around;
     width: 90%;
+    @include respond(small) {
+      font-size: 1rem;
+      margin-bottom: 3rem;
+    }
 
     &-item {
       @include input;
@@ -178,8 +171,6 @@
     text-align: center;
     margin-bottom: 3rem;
     margin-top: 2rem;
-
-    transition: all 0.2s;
 
     h3 {
       font-weight: 400;

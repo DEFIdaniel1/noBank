@@ -19,14 +19,15 @@
     }
   }
   &.white {
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(255, 255, 255);
     color: rgb(69, 69, 69);
+    box-shadow: none;
   }
   &.dark-blue {
     background-color: $blue-dark2;
     background-image: linear-gradient(to bottom right, $blue-dark2, $blue-dark);
 
-    color: rgb(233, 233, 233);
+    color: rgb(255, 255, 255);
     padding: 4rem 1rem 6rem 1rem;
     h1 {
       text-align: center;
@@ -34,7 +35,7 @@
       font-size: 3rem;
     }
     h2 {
-      color: white;
+      color: rgb(255, 255, 255);
       font-size: 2rem;
       font-weight: 300;
       color: $pink-dark2;

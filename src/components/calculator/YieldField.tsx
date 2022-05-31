@@ -46,7 +46,7 @@ const YieldField = () => {
         </div>
         <div className="yield-box-inner">
           <div>Annual Yield</div>
-          <div className="yield-box__value">${twelveMonthYield.toFixed(2)}</div>
+          <div className="yield-box__value">${formattedYield}</div>
         </div>
       </div>
     </div>

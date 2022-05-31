@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d404f37f.css",
+    "main.js": "/static/js/main.9d4ac6f6.js",
+    "static/media/block-header.jpeg": "/static/media/block-header.a50ce618462b0e6a3549.jpeg",
+    "static/media/solana.png": "/static/media/solana.88dd9cd2498aebe1ee8c.png",
+    "static/media/usdc.png": "/static/media/usdc.c4477cfcf6565cacc68b.png",
+    "static/media/bitcoin.png": "/static/media/bitcoin.7911cf30cd2c1bb8ac39.png",
+    "static/media/decentralized.png": "/static/media/decentralized.ff467833c596fbd346ce.png",
+    "static/media/happyWoman.jpeg": "/static/media/happyWoman.333aab3bb0435310964a.jpeg",
+    "static/media/cardano.png": "/static/media/cardano.8169bf45c0509479aa82.png",
+    "static/media/happyMan.jpeg": "/static/media/happyMan.a3f8c3027bf2f4d6a771.jpeg",
+    "static/media/eth.svg": "/static/media/eth.ee7ae7231c37dd44b65a9655983681a4.svg",
+    "static/media/lock.svg": "/static/media/lock.d9ebda574a43c69fde5d.svg",
+    "index.html": "/index.html",
+    "static/media/users1.svg": "/static/media/users1.4056e861d905d5ed96e3.svg",
+    "main.d404f37f.css.map": "/static/css/main.d404f37f.css.map",
+    "main.9d4ac6f6.js.map": "/static/js/main.9d4ac6f6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d404f37f.css",
+    "static/js/main.9d4ac6f6.js"
+  ]
+}
