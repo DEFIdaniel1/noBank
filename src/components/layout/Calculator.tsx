@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 import "./Calculator.scss";
 import StakingCalc from "../calculator/StakingCalc";
@@ -6,21 +6,21 @@ import StakingCalc from "../calculator/StakingCalc";
 // import { TokenState } from "../../models/propTypes";
 
 import Card from "../UI/Card";
-import Button from "../UI/Button";
+// import Button from "../UI/Button";
 import YieldField from "../calculator/YieldField";
 
 const Calculator = () => {
-  const [calcType, setCalcType] = useState("staking");
+  // const [calcType, setCalcType] = useState("staking");
 
-  let inactiveCalcType;
-  if (calcType === "staking") {
-    inactiveCalcType = "Borrow";
-  } else {
-    inactiveCalcType = "Staking";
-  }
-  const calcButtonToggle = () => {
-    calcType === "staking" ? setCalcType("borrow") : setCalcType("staking");
-  };
+  // let inactiveCalcType;
+  // if (calcType === "staking") {
+  //   inactiveCalcType = "Borrow";
+  // } else {
+  //   inactiveCalcType = "Staking";
+  // }
+  // const calcButtonToggle = () => {
+  //   calcType === "staking" ? setCalcType("borrow") : setCalcType("staking");
+  // };
 
   const borrowCalc = (
     <div className="calc__borrow">
@@ -46,14 +46,14 @@ const Calculator = () => {
           <div className="calc-left">
             <div className="calc-left-heading">
               <div className="calc-left-heading-active">Staking</div>
-              <div onClick={calcButtonToggle}>
+              {/* <div onClick={calcButtonToggle}>
                 <Button className="calc-left-heading-inactive btn-pink">
                   Check {inactiveCalcType} Rates
                 </Button>
-              </div>
+              </div> */}
             </div>
-            {calcType === "staking" && <StakingCalc />}
-            {calcType === "borrow" && borrowCalc}
+            <StakingCalc />
+            {/* {calcType === "borrow" && borrowCalc} */}
           </div>
           <YieldField />
         </Card>
