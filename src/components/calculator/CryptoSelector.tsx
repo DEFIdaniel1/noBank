@@ -24,13 +24,11 @@ const CryptoSelector = () => {
       if (data[i].id === name) {
         const tokenPrice: number = data[i]["current_price"];
         const tokenName: string = data[i]["name"];
-        console.log(tokenPrice);
         dispatch(
           updateToken({
             payloadData: { name: tokenName, price: tokenPrice },
           })
         );
-        console.log(tokenName);
         return { tokenName, tokenPrice };
       }
     }

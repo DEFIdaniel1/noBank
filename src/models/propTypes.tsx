@@ -20,3 +20,7 @@ export type TokenState = {
 export type TokenPayload = {
   name: string; price: number;
 };
+
+export type CountValue = {
+  countValue: number;
+};

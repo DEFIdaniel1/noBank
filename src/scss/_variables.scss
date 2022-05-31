@@ -24,6 +24,7 @@ $bp-md: 56.25em; //900px
 $bp-sm: 43.75em; //700px
 $bp-xs: 31.25em; //500px
 $bp-xxs: 18.75em; //300px
+$bp-calc: 25em; //400px calculator breaking point
 
 @mixin respond($size) {
   @if $size == tiny {
@@ -43,6 +44,11 @@ $bp-xxs: 18.75em; //300px
   }
   @if $size == large {
     @media (max-width: $bp-md) {
+      @content;
+    }
+  }
+  @if $size == calc {
+    @media (max-width: $bp-calc) {
       @content;
     }
   }
