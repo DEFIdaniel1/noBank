@@ -1,12 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import fetchDataSlice from "./fetchDataSlice";
-// import changeTokenSlice from "./changeTokenSlice";
 import changeTokenSlice from "./changeTokenSlice";
+import calculatorSlice from "./calculatorSlice";
 
 const store = configureStore({
   reducer: {
     changeToken: changeTokenSlice,
     fetchToken: fetchDataSlice,
+    calculator: calculatorSlice,
   },
 });
 export default store;

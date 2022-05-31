@@ -1,76 +1,16 @@
-import { useState, useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { updateToken } from "../../store/changeTokenSlice";
+import { useState } from "react";
 
 import "./Calculator.scss";
+import StakingCalc from "../calculator/StakingCalc";
 // import { TokenAction } from "../../models/action-types";
 // import { TokenState } from "../../models/propTypes";
-import { getTokenInfo } from "../../store/fetchDataSlice";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
-
-import bitcoin from "../../images/icons/bitcoin.png";
-import eth from "../../images/icons/eth.svg";
-import solana from "../../images/icons/solana.png";
-import cardano from "../../images/icons/cardano.png";
-import usdc from "../../images/icons/usdc.png";
-
-// change borrow/staking button back to calcbuttontoggle
-//dispatch isn't working like it should
+import YieldField from "../calculator/YieldField";
 
 const Calculator = () => {
-  const dispatch = useAppDispatch();
-
-  const fetchedTokenData = useAppSelector(
-    (state) => state.fetchToken.tokenData
-  );
-  const loadingState = useAppSelector((state) => state.fetchToken.loading);
-  const tokenPrice = useAppSelector((state) => state.changeToken.price);
-  const tokenName = useAppSelector((state) => state.changeToken.name);
-
-  const getPrice = (data: any, name: string) => {
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].id === name) {
-        const tokenPrice: number = data[i]["current_price"];
-        const tokenName: string = data[i]["name"];
-        console.log(tokenPrice);
-        dispatch(
-          updateToken({
-            payloadData: { name: tokenName, price: tokenPrice },
-          })
-        );
-        console.log(tokenName);
-        return { tokenName, tokenPrice };
-      }
-    }
-  };
-  const getPriceHandler = (token: string) => {
-    const newPayload = getPrice(fetchedTokenData, token);
-  };
-  useEffect(() => {
-    dispatch(getTokenInfo());
-    getPriceHandler("bitcoin");
-  }, [loadingState]);
-
   const [calcType, setCalcType] = useState("staking");
-
-  const fetchBitcoinHandler = () => {
-    getPriceHandler("bitcoin");
-  };
-
-  const fetchEthereumHandler = () => {
-    getPriceHandler("ethereum");
-  };
-  const fetchSolanaHandler = () => {
-    getPriceHandler("solana");
-  };
-  const fetchCardanoHandler = () => {
-    getPriceHandler("cardano");
-  };
-  const fetchUsdcHandler = () => {
-    getPriceHandler("usd-coin");
-  };
 
   let inactiveCalcType;
   if (calcType === "staking") {
@@ -81,46 +21,6 @@ const Calculator = () => {
   const calcButtonToggle = () => {
     calcType === "staking" ? setCalcType("borrow") : setCalcType("staking");
   };
-
-  const cryptoSelector = (
-    <div className="crypto-icons">
-      <img
-        onClick={fetchBitcoinHandler}
-        src={bitcoin}
-        alt="bitcon token"
-        className="crypto-icons-active"
-      />
-      <img onClick={fetchEthereumHandler} src={eth} alt="eth token" />
-      <img onClick={fetchSolanaHandler} src={solana} alt="solana token" />
-      <img onClick={fetchCardanoHandler} src={cardano} alt="cardano token" />
-      <img onClick={fetchUsdcHandler} src={usdc} alt="cardano token" />
-    </div>
-  );
-
-  const stakeCalc = (
-    <div className="calc-form">
-      <h3>Select Your Crypto</h3>
-      {loadingState && <h4>Loading price...</h4>}
-      {!loadingState && (
-        <h4>{`${tokenName} Price: $${tokenPrice.toFixed(2)}`}</h4>
-      )}
-      {cryptoSelector}
-      <form action="">
-        <label htmlFor="">
-          <h3>Quantity Staked</h3>
-        </label>
-        <input type="number" placeholder="0.00" />
-      </form>
-      <div>
-        <h3>Months</h3>
-        <div className="calc-form__month-selector">
-          <div className="calc-form__month-selector-item">1 Month</div>
-          <div className="calc-form__month-selector-item">6 Months</div>
-          <div className="calc-form__month-selector-item active">12 Months</div>
-        </div>
-      </div>
-    </div>
-  );
 
   const borrowCalc = (
     <div className="calc__borrow">
@@ -146,34 +46,16 @@ const Calculator = () => {
           <div className="calc-left">
             <div className="calc-left-heading">
               <div className="calc-left-heading-active">Staking</div>
-              <div onClick={fetchEthereumHandler}>
+              <div onClick={calcButtonToggle}>
                 <Button className="calc-left-heading-inactive btn-pink">
                   Check {inactiveCalcType} Rates
                 </Button>
               </div>
             </div>
-            {calcType === "staking" && stakeCalc}
+            {calcType === "staking" && <StakingCalc />}
             {calcType === "borrow" && borrowCalc}
           </div>
-          <div className="calc-right">
-            <div className="total-yield-box">
-              <h3>Total Yield</h3>
-              <div className="total-yield-box__value">$1,200.00</div>
-              <div className="total-yield-box__gain">3.00% Gain</div>
-            </div>
-            <div className="yield-box">
-              <div className="yield-box-inner">
-                <div>Monthly Yield</div>
-                <div className="yield-box__value">$100.00</div>
-                <div>0.05% APR</div>
-              </div>
-              <div className="yield-box-inner">
-                <div>Annual Yield</div>
-                <div className="yield-box__value">$1200.00</div>
-                <div>3.00% APY</div>
-              </div>
-            </div>
-          </div>
+          <YieldField />
         </Card>
       </div>
     </Card>
