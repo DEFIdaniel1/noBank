@@ -1,6 +1,6 @@
 # NoBank
 
-Typescript, React, Redux front-end. 
+Typescript, React, Redux front-end. Fully custom-built components. Responsive design. 
 
 ## Overview
 
